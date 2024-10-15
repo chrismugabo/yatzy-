@@ -22,7 +22,7 @@ This section provides an overview of the Yatzy game and its rules. Players roll 
   - **Chance**: Total of all dice.
   
 The game ends when all categories are filled, and the player's total score is displayed.
-
+ 
 ### 2. Design System Documentation
 
 #### Color Scheme
