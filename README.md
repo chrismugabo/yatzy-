@@ -58,24 +58,5 @@ The game will feature a clean and responsive user interface. The primary compone
 - **Scorecard**: Displays the current score and allows the player to select a category to score after each turn.
 - **Roll Button**: A button that allows the player to roll or reroll dice.
   
-Here is a basic HTML structure for the mock-up:
-
-```html
-<!-- Dice Area -->
-<div class="dice-area">
-  <div class="dice">1</div>
-  <div class="dice">2</div>
-  <div class="dice">3</div>
-  <div class="dice">4</div>
-  <div class="dice">5</div>
-</div>
-
-<!-- Scorecard -->
-<div class="scorecard">
-  <div class="score-category">Ones: <span class="score">0</span></div>
-  <div class="score-category">Twos: <span class="score">0</span></div>
-  <!-- Other categories... -->
-</div>
-
-<!-- Roll Button -->
-<button class="roll-btn">Roll Dice</button>
+ 
+ 

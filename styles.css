@@ -1,0 +1,229 @@
+ /* Reset and Basic Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #2d2d2d;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    text-align: center;
+}
+/* Yatzy Title Styling */
+.yatzy-title {
+    font-family: 'Bangers', cursive;
+    font-size: 4rem;
+    color: #ffcc00;
+    background: linear-gradient(45deg, #ff9900, #ffcc00, #ffdd44);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 5px rgba(255, 204, 0, 0.5);
+    animation: glow 1.5s ease-in-out infinite alternate;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+.yatzy-title:hover {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #ff9900, 0 0 20px #ffcc00, 0 0 30px #ffcc00, 0 0 40px #ffdd44, 0 0 50px #ffcc00;
+    }
+    to {
+        text-shadow: 0 0 20px #ffdd44, 0 0 30px #ffcc00, 0 0 40px #ffcc00, 0 0 50px #ff9900, 0 0 60px #ffdd44;
+    }
+}
+
+.game-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #444;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 3rem;
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+.game-board {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.dice-section {
+    width: 50%;
+}
+
+.dice-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.die {
+    width: 80px;
+    height: 80px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.die:hover {
+    transform: scale(1.2) rotate(-10deg);
+    box-shadow: 0px 4px 8px rgba(255, 204, 0, 0.6);
+}
+
+#roll-button, #reset-button {
+    background-color: #ffcc00;
+    color: #000;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#roll-button:hover, #reset-button:hover {
+    background-color: #ff9900;
+}
+
+.disabled {
+    background-color: #888;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.scoreboard-section {
+    width: 40%;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.scoreboard-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.scoreboard-section table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #444;
+}
+
+.scoreboard-section th, .scoreboard-section td {
+    border: 1px solid #555;
+    padding: 10px;
+    text-align: center;
+}
+
+.scoreboard-section th {
+    background-color: #555;
+    color: #fff;
+}
+
+.scoreboard-section td {
+    font-size: 1.2rem;
+}
+
+.selected {
+    background-color: #ff9900;
+    color: #000;
+    font-weight: bold;
+}
+
+.used {
+    color: #888; /* Gray out text */
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.locked {
+    opacity: 0.6; /* Dim the locked dice */
+    border: 2px solid #ffcc00; /* Optional: add a border around locked dice */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    .game-container {
+        width: 95%; /* Full width */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .game-board {
+        flex-direction: column; /* Stack dice and scoreboard sections */
+        align-items: center;
+    }
+    
+    .dice-section, .scoreboard-section {
+        width: 100%; /* Full width sections */
+        margin-bottom: 20px;
+    }
+
+    .die {
+        width: 60px;
+        height: 60px;
+    }
+
+    #roll-button, #reset-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+        width: 90%; /* Near full width buttons */
+    }
+
+    .scoreboard-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .scoreboard-section td, .scoreboard-section th {
+        font-size: 1rem;
+        padding: 8px;
+    }
+}
+
+/* Extra Small Screens (600px and below) */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .die {
+        width: 50px;
+        height: 50px;
+    }
+
+    #roll-button, #reset-button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+        width: 100%; /* Full width buttons */
+    }
+
+    .scoreboard-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .scoreboard-section td, .scoreboard-section th {
+        font-size: 0.9rem;
+        padding: 6px;
+    }
+}
