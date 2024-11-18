@@ -1,7 +1,7 @@
-# Yatzy Game Design Documentation
+ # Yatzy Game Design Documentation
 
 ## Overview
-This project is a part of CST3106 - LAB 05, where I designed and documented a single-player Yatzy game using a structured design system approach. The Yatzy game is a popular dice game where players try to score points by rolling five dice to achieve specific combinations.
+This project is a part of CST3106 - LAB 05, where you will design and document a single-player Yatzy game using a structured design system approach. The Yatzy game is a popular dice game where players try to score points by rolling five dice to achieve specific combinations.
 
 ## Lab Steps
 
@@ -22,7 +22,7 @@ This section provides an overview of the Yatzy game and its rules. Players roll 
   - **Chance**: Total of all dice.
   
 The game ends when all categories are filled, and the player's total score is displayed.
-
+ 
 ### 2. Design System Documentation
 
 #### Color Scheme
@@ -58,24 +58,5 @@ The game will feature a clean and responsive user interface. The primary compone
 - **Scorecard**: Displays the current score and allows the player to select a category to score after each turn.
 - **Roll Button**: A button that allows the player to roll or reroll dice.
   
-Here is a basic HTML structure for the mock-up:
-
-```html
-<!-- Dice Area -->
-<div class="dice-area">
-  <div class="dice">1</div>
-  <div class="dice">2</div>
-  <div class="dice">3</div>
-  <div class="dice">4</div>
-  <div class="dice">5</div>
-</div>
-
-<!-- Scorecard -->
-<div class="scorecard">
-  <div class="score-category">Ones: <span class="score">0</span></div>
-  <div class="score-category">Twos: <span class="score">0</span></div>
-  <!-- Other categories... -->
-</div>
-
-<!-- Roll Button -->
-<button class="roll-btn">Roll Dice</button>
+ 
+ 
