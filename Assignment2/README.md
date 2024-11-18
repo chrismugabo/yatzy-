@@ -1,7 +1,7 @@
 # Yatzy Game Design Documentation
 
 ## Overview
-This project is a part of CST3106 - LAB 05, where you will design and document a single-player Yatzy game using a structured design system approach. The Yatzy game is a popular dice game where players try to score points by rolling five dice to achieve specific combinations.
+This project is a part of CST3106 - LAB 05, where I designed and documented a single-player Yatzy game using a structured design system approach. The Yatzy game is a popular dice game where players try to score points by rolling five dice to achieve specific combinations.
 
 ## Lab Steps
 
