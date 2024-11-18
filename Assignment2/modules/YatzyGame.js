@@ -42,36 +42,14 @@ export class YatzyGame {
         })
             .then(() => console.log('Game state reset on server'))
             .catch(error => console.error('Failed to reset game state on server:', error));
-    }
 
-    /**
-     * Starts a new game by resetting the game state and syncing with the server.
-     */
-    startNewGame() {
-        this.totalScore = 0;
-        this.engine.resetLockedCategories(); // Reset locked categories
-        this.dice.resetRolls(); // Reset dice rolls
-        this.scoreLocked = false; // Allow scoring for the first turn
-
-        // Inform the server to reset the game state
-        fetch(`${window.location.origin}/game-state`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ reset: true }),
-        }).catch(error => console.error('Failed to reset game state on server:', error));
-    }
-
-    /**
-     * Starts a new turn by resetting the dice rolls and unlocking the score lock.
-     */
-    startNewTurn() {
-        this.dice.resetRolls(); // Reset dice rolls
-        this.scoreLocked = false; // Allow scoring for this turn
+        // Reset button text to "Roll Dice"
+        document.getElementById('roll-button').innerText = 'Roll Dice';
     }
 
     /**
      * Updates the score for a selected category based on the current dice values.
-     * Locks the score on the server to ensure persistence.
+     * Sends the calculation task to the server.
      * @param {string} category - The category to lock the score for.
      */
     updateScore(category) {
@@ -80,25 +58,33 @@ export class YatzyGame {
             return; // Prevent multiple score locks in one turn
         }
 
-        // Get the current dice values from the UI
         const diceValues = Array.from(document.querySelectorAll('.die')).map(die =>
             parseInt(die.getAttribute('data-value'))
         );
 
-        // Calculate the score for the selected category
-        const score = this.engine.calculateScore(category, diceValues);
+        // Call the server to calculate the score
+        fetch(`${window.location.origin}/calculate-score`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ category, diceValues }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                const score = data.score;
 
-        // Lock the score if the category is not already locked
-        if (!(category in this.engine.lockedCategories)) {
-            this.engine.lockCategoryScore(category, score); // Save score to the server
-            this.totalScore += score; // Update total score locally
+                // Lock the score if the category is not already locked
+                if (!(category in this.engine.lockedCategories)) {
+                    this.engine.lockCategoryScore(category, score); // Save score to the server
+                    this.totalScore += score; // Update total score locally
 
-            // Update the UI with the locked score and total score
-            document.getElementById(`score-${category}`).innerText = score;
-            document.getElementById('score-total').innerText = this.totalScore;
+                    // Update the UI with the locked score and total score
+                    document.getElementById(`score-${category}`).innerText = score;
+                    document.getElementById('score-total').innerText = this.totalScore;
 
-            this.scoreLocked = true; // Prevent additional score locks in this turn
-        }
+                    this.scoreLocked = true; // Prevent additional score locks in this turn
+                }
+            })
+            .catch(error => console.error('Error calculating score:', error));
     }
 
     /**

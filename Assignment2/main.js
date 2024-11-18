@@ -5,7 +5,7 @@ const game = new YatzyGame();
 
 // Update the roll button text dynamically
 function updateRollButton() {
-    document.getElementById('roll-button').innerText = `Roll Dice (${game.dice.rollCount} Rolls Left)`;
+    document.getElementById('roll-button').innerText = `Roll Dice`;
 }
 
 // Update dice images dynamically
