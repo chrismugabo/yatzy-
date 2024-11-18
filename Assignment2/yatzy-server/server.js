@@ -17,6 +17,13 @@ app.get('/', (req, res) => {
 // Example game state on the server
 let gameState = { lockedCategories: {}, scores: {}, totalScore: 0 };
 
+// POST endpoint to roll dice
+app.post('/roll-dice', (req, res) => {
+    // Generate random dice values (1 to 6 for 5 dice)
+    const diceValues = Array.from({ length: 5 }, () => Math.floor(Math.random() * 6) + 1);
+    res.json({ diceValues }); // Return the dice values as a JSON response
+});
+
 // GET endpoint to fetch the current game state
 app.get('/game-state', (req, res) => {
     res.json(gameState);

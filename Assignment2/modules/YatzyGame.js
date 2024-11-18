@@ -14,6 +14,37 @@ export class YatzyGame {
     }
 
     /**
+     * Updates the dice values in the game state.
+     * @param {Array} diceValues - The array of dice values received from the server.
+     */
+    updateDice(diceValues) {
+        console.log('Updating dice values in YatzyGame:', diceValues); // Debugging log
+        this.dice.values = diceValues; // Update dice values in the Dice instance
+    }
+
+    /**
+     * Resets the game state and synchronizes with the server.
+     */
+    resetGame() {
+        console.log('Resetting game state...'); // Debug log
+
+        // Reset local state
+        this.totalScore = 0;
+        this.dice.resetRolls();
+        this.engine.resetLockedCategories();
+        this.scoreLocked = false;
+
+        // Update the server
+        fetch(`${window.location.origin}/game-state`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ reset: true }),
+        })
+            .then(() => console.log('Game state reset on server'))
+            .catch(error => console.error('Failed to reset game state on server:', error));
+    }
+
+    /**
      * Starts a new game by resetting the game state and syncing with the server.
      */
     startNewGame() {
