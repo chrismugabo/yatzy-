@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yatzy Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1 class="yatzy-title">YATZY</h1>
+
+        <div class="game-board">
+            <!-- Dice and Roll Section -->
+            <div class="dice-section">
+                <div class="dice-container">
+                    <img src="images/dice1.png" class="die" id="die1" alt="Die 1" data-value="1">
+                    <img src="images/dice2.png" class="die" id="die2" alt="Die 2" data-value="2">
+                    <img src="images/dice3.png" class="die" id="die3" alt="Die 3" data-value="3">
+                    <img src="images/dice4.png" class="die" id="die4" alt="Die 4" data-value="4">
+                    <img src="images/dice5.png" class="die" id="die5" alt="Die 5" data-value="5">
+                </div>
+                <button id="roll-button">Roll Dice (3 Rolls Left)</button>
+                <button id="reset-button">Restart Game</button>
+            </div>
+            
+            <!-- Scoreboard Section -->
+            <div class="scoreboard-section">
+                <h2>Scorecard</h2>
+                <table>
+                    <tr><th>Category</th><th>Score</th></tr>
+                    <tr><td>Ones</td><td id="score-ones">0</td></tr>
+                    <tr><td>Twos</td><td id="score-twos">0</td></tr>
+                    <tr><td>Threes</td><td id="score-threes">0</td></tr>
+                    <tr><td>Fours</td><td id="score-fours">0</td></tr>
+                    <tr><td>Fives</td><td id="score-fives">0</td></tr>
+                    <tr><td>Sixes</td><td id="score-sixes">0</td></tr>
+                    <tr><td>Three of a Kind</td><td id="score-three-kind">0</td></tr>
+                    <tr><td>Four of a Kind</td><td id="score-four-kind">0</td></tr>
+                    <tr><td>Full House</td><td id="score-full-house">0</td></tr>
+                    <tr><td>Small Straight</td><td id="score-small-straight">0</td></tr>
+                    <tr><td>Large Straight</td><td id="score-large-straight">0</td></tr>
+                    <tr><td>Chance</td><td id="score-chance">0</td></tr>
+                    <tr><td>Yatzy</td><td id="score-yatzy">0</td></tr>
+                    <tr><td><b>Total</b></td><td id="score-total">0</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main script file as a module to connect all modules -->
+    <script type="module" src="main.js"></script>
+</body>
+</html>
